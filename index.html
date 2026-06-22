@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>绒绒好朋友 AI 视频制作流程演示</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <!-- 左侧目录导航 -->
+      <aside class="page-sidebar">
+        <div class="sidebar-header">
+          <h3>目录</h3>
+        </div>
+        <nav id="slide-toc" class="slide-toc"></nav>
+      </aside>
+
+      <!-- 右侧主内容区（瀑布流长页面） -->
+      <main class="page-main">
+        <div id="sections-container"></div>
+      </main>
+    </div>
+
+    <!-- 图片灯箱 -->
+    <div id="image-lightbox" class="lightbox" aria-hidden="true">
+      <button id="lightbox-close" class="lightbox-close" type="button">✕</button>
+      <img id="lightbox-image" alt="预览图" />
+      <p id="lightbox-caption"></p>
+    </div>
+
+    <!-- AI 初版分镜脚本弹窗 -->
+    <div id="ai-script-modal" class="ai-script-modal" aria-hidden="true">
+      <div class="ai-script-modal-dialog" role="dialog" aria-modal="true" aria-label="AI 梳理后的初版分镜脚本">
+        <header class="ai-script-modal-header">
+          <div>
+            <h3>AI 梳理后的初版分镜脚本</h3>
+            <p>由 AI 根据原始故事想法整理生成，作为后续人工修改的基础</p>
+          </div>
+          <button id="ai-script-modal-close" class="ai-script-close" type="button" aria-label="关闭弹窗">✕</button>
+        </header>
+        <section id="ai-script-modal-body" class="ai-script-modal-body"></section>
+        <footer class="ai-script-modal-footer">
+          <p>AI 输出的分镜脚本不是最终稿，而是帮助设计师快速搭建结构。最终镜头是否成立，仍然需要人工判断和修改。</p>
+          <button id="ai-script-modal-close-footer" class="doc-btn secondary" type="button">关闭</button>
+        </footer>
+      </div>
+    </div>
+
+    <!-- 人工分镜脚本弹窗 -->
+    <div id="storyboard-extended-modal" class="ai-script-modal" aria-hidden="true">
+      <div class="ai-script-modal-dialog" role="dialog" aria-modal="true" aria-label="人工调整后的分镜脚本">
+        <header class="ai-script-modal-header">
+          <div>
+            <h3>人工调整后的分镜脚本</h3>
+            <p>基于 AI 初版分镜，由设计师逐镜头修改和延展形成</p>
+          </div>
+          <button id="storyboard-modal-close" class="ai-script-close" type="button" aria-label="关闭弹窗">✕</button>
+        </header>
+        <section id="storyboard-extended-modal-body" class="ai-script-modal-body"></section>
+        <footer class="ai-script-modal-footer">
+          <p>AI 生成的是分镜骨架，人工延展才是可执行分镜。设计师需要根据画面逻辑、动作可生成性和剪辑节奏继续调整。</p>
+          <button id="storyboard-modal-close-footer" class="doc-btn secondary" type="button">关闭</button>
+        </footer>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

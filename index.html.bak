@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>绒绒好朋友 AI 视频制作流程演示</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- 幻灯片容器 -->
+    <div class="slideshow-wrapper">
+      <!-- 左侧目录导航 -->
+      <aside class="slide-sidebar">
+        <div class="sidebar-header">
+          <h3>目录</h3>
+        </div>
+        <nav id="slide-toc" class="slide-toc"></nav>
+        <div class="sidebar-footer">
+          <span id="sidebar-page-counter">1 / 12</span>
+        </div>
+      </aside>
+
+      <!-- 主幻灯片区域 -->
+      <main class="slide-main">
+        <div id="slides-container" class="slides-container"></div>
+
+        <!-- 下方控制条 -->
+        <div class="slide-controls">
+          <button id="btn-prev" class="control-btn" aria-label="上一页">
+            <span class="btn-arrow">←</span>
+            <span id="prev-title" class="btn-title">上一页</span>
+          </button>
+          <div class="progress-info">
+            <div class="progress-bar">
+              <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <span id="page-counter">1 / 12</span>
+          </div>
+          <button id="btn-next" class="control-btn" aria-label="下一页">
+            <span id="next-title" class="btn-title">下一页</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </main>
+    </div>
+
+    <!-- 图片灯箱 -->
+    <div id="image-lightbox" class="lightbox" aria-hidden="true">
+      <button id="lightbox-close" class="lightbox-close" type="button">✕</button>
+      <img id="lightbox-image" alt="预览图" />
+      <p id="lightbox-caption"></p>
+    </div>
+
+    <div id="ai-script-modal" class="ai-script-modal" aria-hidden="true">
+      <div class="ai-script-modal-dialog" role="dialog" aria-modal="true" aria-label="AI 梳理后的初版分镜脚本">
+        <header class="ai-script-modal-header">
+          <div>
+            <h3>AI 梳理后的初版分镜脚本</h3>
+            <p>由 AI 根据原始故事想法整理生成，作为后续人工修改的基础</p>
+          </div>
+          <button id="ai-script-modal-close" class="ai-script-close" type="button" aria-label="关闭弹窗">✕</button>
+        </header>
+        <section id="ai-script-modal-body" class="ai-script-modal-body"></section>
+        <footer class="ai-script-modal-footer">
+          <p>AI 输出的分镜脚本不是最终稿，而是帮助设计师快速搭建结构。最终镜头是否成立，仍然需要人工判断和修改。</p>
+          <button id="ai-script-modal-close-footer" class="doc-btn secondary" type="button">关闭</button>
+        </footer>
+      </div>
+    </div>
+
+    <div id="storyboard-extended-modal" class="ai-script-modal" aria-hidden="true">
+      <div class="ai-script-modal-dialog" role="dialog" aria-modal="true" aria-label="人工调整后的分镜脚本">
+        <header class="ai-script-modal-header">
+          <div>
+            <h3>人工调整后的分镜脚本</h3>
+            <p>基于 AI 初版分镜，由设计师逐镜头修改和延展形成</p>
+          </div>
+          <button id="storyboard-modal-close" class="ai-script-close" type="button" aria-label="关闭弹窗">✕</button>
+        </header>
+        <section id="storyboard-extended-modal-body" class="ai-script-modal-body"></section>
+        <footer class="ai-script-modal-footer">
+          <p>AI 生成的是分镜骨架，人工延展才是可执行分镜。设计师需要根据画面逻辑、动作可生成性和剪辑节奏继续调整。</p>
+          <button id="storyboard-modal-close-footer" class="doc-btn secondary" type="button">关闭</button>
+        </footer>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
